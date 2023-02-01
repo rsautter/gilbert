@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 # Copyright (c) 2018 Jakub Červený
 
+import numpy as np 
 
 def gilbert2d(width, height):
     """
@@ -68,6 +69,36 @@ def generate2d(x, y, ax, ay, bx, by):
         yield from generate2d(x+(ax-dax)+(bx2-dbx), y+(ay-day)+(by2-dby),
                               -bx2, -by2, -(ax-ax2), -(ay-ay2))
 
+def vec2mat(vet, s=4):
+	'''
+	Transforms the vector into a matrix using the generalized hilbert curve
+	--------------
+	vet - input vector
+	s - the first dimension of the matrix, if it is not multple, then returns an exception
+	--------------
+	Author: Rubens A. Sautter (2023)
+	'''
+	if len(vet)%s != 0:
+		raise Excetion("Invalid dimenson size!")
+	mat = np.zeros((s,len(vet)//s))
+	gb = gilbert2d(s,len(vet)//s)
+	for idx, (x,y) in enumerate(gb):
+		mat[x,y] = vet[idx]
+	return mat
+		
+def mat2vec(mat):
+	'''
+	Transforms the vector into a matrix using the generalized hilbert curve
+	--------------
+	mat - input matrix
+	--------------
+	Author: Rubens A. Sautter (2023)
+	'''
+	vet = np.zeros(len(mat)*len(mat[0]))
+	gb = gilbert2d(len(mat),len(mat[0]))
+	for idx, (x,y) in enumerate(gb):
+		vet[idx] = mat[x,y]
+	return vet
 
 if __name__ == "__main__":
 

@@ -99,6 +99,18 @@ obtained with
 ./gilbert2d.py 100 63 | octave --eval 'waitfor(plotpath(dlmread(stdin())));'
 ```
 
+### Fork Changes (Editor: Rubens A. Sautter)
+
+The code has been packed to be installed via pip as the following code:
+
+```
+	pip install git+https://github.com/rsautter/gilbert
+```
+
+Two functions has been added:
+
+	- vec2mat -> transforms a vector into a matrix
+	- mat2vec -> transforms a matrix into a vector 
 
 ---
 
