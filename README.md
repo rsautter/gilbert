@@ -112,6 +112,35 @@ The following functions has been added:
 - vec2mat -> transforms a vector into a matrix
 - mat2vec -> transforms a matrix into a vector 
 
+Example:
+
+Vector to matrix:
+```
+import gilbert
+import numpy
+
+vec = numpy.arange(16) 
+gilbert.vec2mat(vec,4)
+```
+```
+array([[ 0.,  3.,  4.,  5.],
+       [ 1.,  2.,  7.,  6.],
+       [14., 13.,  8.,  9.],
+       [15., 12., 11., 10.]])
+``` 
+
+Matrix to vector:
+```
+import gilbert
+import numpy
+
+matrix = numpy.arange(16).reshape(4,4)
+gilbert.mat2vec(matrix)
+``` 
+```
+array([ 0.,  4.,  5.,  1.,  2.,  3.,  7.,  6., 10., 11., 15., 14., 13.,
+        9.,  8., 12.])
+``` 
 ---
 
 Author: Jakub Červený. This [code](https://github.com/jakubcerveny/gilbert) is released under the 2-clause BSD license.
