@@ -107,9 +107,9 @@ The code has been packed to be installed via pip as the following code:
 pip install git+https://github.com/rsautter/gilbert
 ```
 
-Two functions has been added:
+The following functions has been added:
 
-- vec2mat -> transforms a vector into a matrix (one dimension is required)
+- vec2mat -> transforms a vector into a matrix
 - mat2vec -> transforms a matrix into a vector 
 
 ---
